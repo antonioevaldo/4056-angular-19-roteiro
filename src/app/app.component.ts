@@ -9,5 +9,7 @@ import { FormNovaTransacaoComponent } from "./form-nova-transacao/form-nova-tran
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = '4056-angular-19-roteiro';
+  processarTransacao() {
+    console.log('Transação criada!');
+  }
 }
