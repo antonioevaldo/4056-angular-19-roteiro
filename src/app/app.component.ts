@@ -20,14 +20,18 @@ export class AppComponent {
 
         case TipoTransacao.SAQUE:
           return acc - transacaoAtual.valor;
-      
+
         default:
           throw new Error('Tipo de transação não identificado.');
-      }      
+      }
     }, 0);
   });
 
   processarTransacao(transacao: Transacao) {
+    if (transacao.tipo === TipoTransacao.SAQUE && transacao.valor > this.saldo()) {
+      return alert('Saldo insuficiente!')
+    }
+
     this.transacoes.update((listaAtual) => [transacao, ...listaAtual]);
 
     console.log(this.transacoes());
